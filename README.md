@@ -1,4 +1,3 @@
-
 ![Logo](https://i.ibb.co/znvCGpk/linkedin-banner-image-1.png)
 # Amnesia
 
