@@ -1,3 +1,5 @@
+
+![Logo](https://i.ibb.co/znvCGpk/linkedin-banner-image-1.png)
 # Amnesia
 
 This project is a keylogger server for educational purposes only. It is not intended for any malicious use and should only be used with the proper authorization.
