@@ -31,7 +31,11 @@ Once the connection is established, every key pressed on the client machine will
 
 ### Additional info
 
-If you want to change the appearance of a web page or create a completely new one, insert your index.html into [lingojam](https://lingojam.com/TexttoOneLine) to make it single-row
+If you want to change the appearance of a web page or create a completely new one, insert your index.html into [lingojam](https://lingojam.com/TexttoOneLine) to make it single-row</br>
+
+Don't forget to change the `hostName` and `host` if you want to try it on other people
+
+Antivirus will detect `amnesia.py` as a keylogger. To make it undetectable, you have to compile it into .exe. You can use tools like pyinstaller or pyarmor
 
 ## Note
 
